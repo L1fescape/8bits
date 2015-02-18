@@ -23,7 +23,8 @@
   },
   "homepage": "https://github.com/akenn/8bits",
   "dependencies": {
-    "underscore.string": "^3.0.3"
+    "underscore.string": "^3.0.3",
+    "underscore": "^1.7.0"
   },
   "devDependencies": {
     "mocha": "^2.1.0",

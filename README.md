@@ -18,10 +18,18 @@ byte(1023);
 
 byte(1025);
 //=> 1 KB
+
+// convert from one format to another
+byte(512000, {from: 'KB', to: 'MB'});
+
+// use bits instead of bytes
+byte(1024, {from: 'B', to: 'KB', useBits: true, digits: 2});
+//=> 1.02 KB
 ```
 
 ## Todo
 
+- Add better examples
 - Support pluralization
 - Retrieve byte value from human-readable value (i.e. 1 MB => 1048576)
 - More tests!
