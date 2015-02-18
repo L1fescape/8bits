@@ -1,4 +1,4 @@
-# 8bits
+# 8bits [![Build Status](https://travis-ci.org/akenn/8bits.svg?branch=master)](https://travis-ci.org/akenn/8bits)
 
 > A Javascript library for manipulating and converting byte values
 
