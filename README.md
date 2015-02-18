@@ -21,6 +21,7 @@ byte(1025);
 
 // convert from one format to another
 byte(512000, {from: 'KB', to: 'MB'});
+//=> 500 MB
 
 // use bits instead of bytes
 byte(1024, {from: 'B', to: 'KB', useBits: true, digits: 2});
