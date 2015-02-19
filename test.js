@@ -45,6 +45,7 @@ it('should support binary format', function () {
 });
 
 it('should convert from one unit to another', function () {
+  expect(byte(1, {from: 'kB', to: 'kB'})).to.equal('1 kB');
   expect(byte(100, {from: 'kB', to: 'B'})).to.equal('100000 B');
   expect(byte(100, {from: 'kB', to: 'B', binary: true})).to.equal('102400 B');
   expect(byte(100, {from: 'kB', to: 'B', useBits: true})).to.equal('100000 B');

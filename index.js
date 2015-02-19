@@ -37,6 +37,7 @@ var getUnitsObj = function(units, decimal){
 
 var convert = function(value, units, inputUnit, outputUnit, k){
   inputUnit = inputUnit.toUpperCase();
+  outputUnit = outputUnit.toUpperCase();
   var i = _.indexOf(units, inputUnit);
   if (i < 0){
     i = 0;
