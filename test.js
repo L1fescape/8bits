@@ -53,3 +53,17 @@ it('should convert from one unit to another', function () {
   expect(byte(512000, {from: 'kB', to: 'MB'})).to.equal('512 MB');
   expect(byte(500, {from: 'MB', to: 'B'})).to.equal('500000000 B');
 });
+
+it('should be able to use all settings in tandem', function () {
+  var options = {
+    from: 'MB',
+    to: 'YB',
+    format: '%s (%s)',
+    binary: true,
+    digits: 6,
+    units: {
+      YB: 'yoda bytes'
+    }
+  };
+  expect(byte(2000000000000, options)).to.equal('0.000002 (yoda bytes)');
+});
