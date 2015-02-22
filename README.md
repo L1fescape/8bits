@@ -2,22 +2,7 @@
 
 > A Javascript library for manipulating and converting byte values
 
-
-// Prefixes for multiples of bits (b) or bytes (B)
-//      Decimal                   Binary
-// ================================================
-// Value    Metric   |  Value    JEDEC       IEC
-// 1000     k kilo   |  1024     K kilo    Ki  kibi
-// 1000^2   M mega   |  1024^2   M mega    Mi  mebi
-// 1000^3   G giga   |  1024^3   G giga    Gi  gibi
-// 1000^4   T tera   |  1024^4   – –       Ti  tebi
-// 1000^5   P peta   |  1024^5   – –       Pi  pebi
-// 1000^6   E exa    |  1024^6   – –       Ei  exbi
-// 1000^7   Z zetta  |  1024^7   – –       Zi  zebi
-// 1000^8   Y yotta  |  1024^8   – –       Yi  yobi
-
-
-There are two primary ways to represent byte sizes: SI units (decimal / base-10 / 10^3) and IEC units (binary; / base 2 / 2^10). `8bits` supports both of formats, with the default being decimal. You can read more on this subject [here](http://en.wikipedia.org/wiki/Binary_prefix) and [here](https://pacoup.com/2009/05/26/kb-kb-kib-whats-up-with-that/).
+There are two primary ways to represent byte sizes: SI units (decimal / Base 10 / 10^3) and IEC units (binary / Base 2 / 2^10). `8bits` supports both of decimal and binary formats, with the default format being decimal.
 
 ## Install
 
@@ -62,12 +47,45 @@ byte(2000000, {
   }
 });
 //=> 2 Megabytes
+
+// All together
+byte(2000000000000, {
+  from: 'MB',
+  to: 'YB',
+  format: '%s (%s)',
+  binary: true,
+  digits: 6,
+  units: {
+    YB: 'yoda bytes'
+  }
+});
+//=> 0.000002 (yoda bytes)
 ```
 
 ## Todo
 
 - Retrieve byte value from human-readable value (i.e. 1 MB => 1048576)
 - Include API in Readme
+
+## Useful Information
+
+```
+// Prefixes for multiples of bits (b) or bytes (B)
+//      Decimal                   Binary
+// ================================================
+// Value    Metric   |  Value    JEDEC       IEC
+// 1000     k kilo   |  1024     K kilo    Ki  kibi
+// 1000^2   M mega   |  1024^2   M mega    Mi  mebi
+// 1000^3   G giga   |  1024^3   G giga    Gi  gibi
+// 1000^4   T tera   |  1024^4   – –       Ti  tebi
+// 1000^5   P peta   |  1024^5   – –       Pi  pebi
+// 1000^6   E exa    |  1024^6   – –       Ei  exbi
+// 1000^7   Z zetta  |  1024^7   – –       Zi  zebi
+// 1000^8   Y yotta  |  1024^8   – –       Yi  yobi
+```
+
+- [Binary Prefixes](http://en.wikipedia.org/wiki/Binary_prefix)
+- [kb, kB, KiB… What’s Up With That?](https://pacoup.com/2009/05/26/kb-kb-kib-whats-up-with-that/).
 
 ## License
 
