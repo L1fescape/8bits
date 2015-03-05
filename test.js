@@ -67,3 +67,10 @@ it('should be able to use all settings in tandem', function () {
   };
   expect(byte(2000000000000, options)).to.equal('0.000002 (yoda bytes)');
 });
+
+it('should return 0 for NaN, null, undefined, or falsy byte values', function () {
+  expect(byte(NaN)).to.equal('0 B');
+  expect(byte(undefined)).to.equal('0 B');
+  expect(byte(null)).to.equal('0 B');
+  expect(byte('')).to.equal('0 B');
+});

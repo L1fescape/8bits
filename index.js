@@ -52,6 +52,10 @@ module.exports = function(bytes, options){
     bytes = parseInt(bytes, 10);
   }
 
+  if (_.isNaN(bytes) || !_.isNumber(bytes)){
+    bytes = 0;
+  }
+
   // convert to bytes
   if (inputUnit !== 'B'){
     bytes = convert(bytes, unitKeys, inputUnit, 'B', k);
