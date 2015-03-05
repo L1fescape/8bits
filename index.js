@@ -56,6 +56,10 @@ module.exports = function(bytes, options){
     bytes = 0;
   }
 
+  if (bytes < 1){
+  return sprintf(format, (bytes).toString(), 'B');
+  }
+
   // convert to bytes
   if (inputUnit !== 'B'){
     bytes = convert(bytes, unitKeys, inputUnit, 'B', k);

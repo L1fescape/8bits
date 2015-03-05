@@ -74,3 +74,10 @@ it('should return 0 for NaN, null, undefined, or falsy byte values', function ()
   expect(byte(null)).to.equal('0 B');
   expect(byte('')).to.equal('0 B');
 });
+
+it('should handle byte values between 0 and 1', function () {
+  expect(byte(0.1)).to.equal('0.1 B');
+  expect(byte(0.99)).to.equal('0.99 B');
+  expect(byte(1)).to.equal('1 B');
+  expect(byte(0)).to.equal('0 B');
+});
