@@ -1,26 +1,7 @@
 'use strict';
-var _ = require('underscore');
+var _ = require('lodash');
+var prefixes = require('binary-prefix');
 var sprintf = require('underscore.string/sprintf');
-
-var getUnitsObj = function(units, decimal){
-  var decimalUnits = {
-    B: 'B',
-    KB: 'kB',
-    MB: 'MB',
-    GB: 'GB',
-    TB: 'TB', 
-    PB: 'PB',
-    EB: 'EB',
-    ZB: 'ZB',
-    YB: 'YB'
-  };
-
-  if (!decimal) {
-    decimalUnits['KB'] = 'KB';
-  }
-
-  return _.extend(decimalUnits, units);
-};
 
 var convert = function(value, units, inputUnit, outputUnit, k){
   inputUnit = inputUnit.toUpperCase();
@@ -39,7 +20,10 @@ module.exports = function(bytes, options){
   var format = options.format || '%s %s';
   var decimal = !options.binary;
   var k = decimal ? 1000 : 1024;
-  var units = getUnitsObj(options.units, decimal);
+  var units = prefixes({
+    custom: options.units,
+    decimal: decimal
+  });
   var unitKeys = _.keys(units);
   var digits = options.digits || 0;
   var inputUnit = options.from ? options.from.toUpperCase() : 'B';
