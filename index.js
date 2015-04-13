@@ -14,7 +14,7 @@ function parseOptions(options) {
       decimal: decimal
     }),
     digits: options.digits || 0,
-    significantDigits: null,
+    minSigFigs: options.minSigFigs || null,
     convert: {
       from: options.from ? options.from.toUpperCase() : 'B',
       to: options.to ? options.to.toUpperCase() : null
@@ -92,7 +92,11 @@ module.exports = function(bytes, options){
     unit = tmp.unit;
   }
 
-  value = value.toFixed(config.digits);
+  if (config.minSigFigs && value.toString().replace('.', '').length < config.minSigFigs){
+    value = value.toPrecision(config.minSigFigs);
+  } else {
+    value = value.toFixed(config.digits);
+  }
 
   return sprintf(config.outputFormat, value, unit);
 };

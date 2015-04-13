@@ -81,3 +81,13 @@ it('should handle byte values between 0 and 1', function () {
   expect(byte(1)).to.equal('1 B');
   expect(byte(0)).to.equal('0 B');
 });
+
+it('should support a minimum number of significant figures', function () {
+  expect(byte(999, { minSigFigs: 3 })).to.equal('999 B');
+  expect(byte(99, { minSigFigs: 3 })).to.equal('99.0 B');
+  expect(byte(9, { minSigFigs: 3 })).to.equal('9.00 B');
+
+  expect(byte(999, { minSigFigs: 3 })).to.equal('999 B');
+  expect(byte(1024, { minSigFigs: 3, digits: 2 })).to.equal('1.02 kB');
+  expect(byte(1024, { minSigFigs: 3, from: 'MB', to: 'B' })).to.equal('1024000000 B');
+});
