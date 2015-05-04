@@ -51,7 +51,7 @@ module.exports = function(bytes, options){
   value = converted.value;
   unit = converted.unit;
 
-  if (config.minSigFigs && value.toString().replace('.', '').length < config.minSigFigs){
+  if (config.minSigFigs && value.toString().replace('.', '').length <= config.minSigFigs){
     value = value.toPrecision(config.minSigFigs);
   } else if (value > 1 || unit !== 'B') {
     value = value.toFixed(config.digits);
