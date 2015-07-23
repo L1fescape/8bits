@@ -1,7 +1,7 @@
 'use strict';
 var _ = require('lodash');
 var prefixes = require('binary-prefix');
-var sprintf = require('underscore.string/sprintf');
+var sprintf = require('underscore.string').sprintf;
 var convert = require('./lib/convert');
 
 function parseOptions(options) {

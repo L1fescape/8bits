@@ -25,7 +25,7 @@
   "dependencies": {
     "binary-prefix": "^1.1.0",
     "lodash": "^2.4.2",
-    "underscore.string": "^3.0.3"
+    "underscore.string": "^2.3.3"
   },
   "devDependencies": {
     "mocha": "^2.1.0",
