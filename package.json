@@ -1,6 +1,6 @@
 {
   "name": "8bits",
-  "version": "0.2.9",
+  "version": "0.2.10",
   "description": "A Javascript library for manipulating and converting byte values",
   "main": "index.js",
   "scripts": {
