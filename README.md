@@ -1,4 +1,4 @@
-# 8bits [![Build Status](https://travis-ci.org/akenn/8bits.svg?branch=master)](https://travis-ci.org/akenn/8bits)
+# 8bits [![Build Status](https://travis-ci.org/l1fescape/8bits.svg?branch=master)](https://travis-ci.org/L1fescape/8bits)
 
 > A Javascript library for manipulating and converting byte values
 
@@ -89,4 +89,4 @@ byte(2000000000000, {
 
 ## License
 
-MIT © [Andrew Kennedy](https://akenn.org)
+MIT © [Andrew Kennedy](https://l1fescape.com)
