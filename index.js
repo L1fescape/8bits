@@ -2,6 +2,7 @@
 var _ = require('lodash');
 var prefixes = require('binary-prefix');
 var sprintf = require('underscore.string').sprintf;
+var numberFormat = require('underscore.string').numberFormat;
 var convert = require('./lib/convert');
 
 function parseOptions(options) {
@@ -19,7 +20,8 @@ function parseOptions(options) {
     convert: {
       from: options.from ? options.from.toUpperCase() : 'B',
       to: options.to ? options.to.toUpperCase() : null
-    }
+    },
+    numberFormatOptions: options.numberFormatOptions || []
   };
 };
 
@@ -44,7 +46,7 @@ module.exports = function(bytes, options){
   if (bytes === 0) {
     value = 0;
     unit = config.units.B;
-    return sprintf(config.outputFormat, value, unit);
+    return sprintf(config.outputFormat, numberFormat.apply( numberFormat, [value].concat(config.numberFormatOptions)), unit);
   }
 
   var converted = convert(bytes, config.units, 'B', config.convert.to, config.decimal);
@@ -57,5 +59,5 @@ module.exports = function(bytes, options){
     value = value.toFixed(config.digits);
   }
 
-  return sprintf(config.outputFormat, value, unit);
+  return sprintf(config.outputFormat, numberFormat.apply(numberFormat, [+value].concat(config.numberFormatOptions)), unit);
 };
